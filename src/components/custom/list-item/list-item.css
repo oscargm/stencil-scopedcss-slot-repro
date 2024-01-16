@@ -1,0 +1,24 @@
+.custom-list-item {
+  display: block;
+  border-bottom: 1px dashed #333;
+  width: 200px;
+}
+
+.custom-list-item--wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.custom-list-item--prefix-slot,
+.custom-list-item--suffix-slot {
+  flex-basis: 15%;
+  flex-grow: 0;
+}
+
+.custom-list-item--default-slot {
+  flex-basis: 70%;
+  flex-grow: 1;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  word-break: normal;
+}

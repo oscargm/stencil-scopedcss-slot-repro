@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/stencil-scoped.esm.js"></script>
+    <script nomodule src="/build/stencil-scoped.js"></script>
+  </head>
+  <body>
+    <ul>
+      <shadow-list-item id="shadow"><span slot="prefix">></span><span>Shadow list item 1</span><span slot="suffix">X</span></shadow-list-item>
+      <shadow-list-item><span slot="prefix">></span>Shadow list item 2<span slot="suffix">X</span></shadow-list-item>
+      <shadow-list-item><span slot="prefix">></span>Shadow list item 3<span slot="suffix">X</span></shadow-list-item>
+      <shadow-list-item><span slot="prefix">></span>Shadow list item 4<span slot="suffix">X</span></shadow-list-item>
+      <shadow-list-item><span slot="prefix">></span>Shadow list item 5<span slot="suffix">X</span></shadow-list-item>
+    </ul>
+    <ul>
+      <scoped-list-item id="scoped"><span slot="prefix">></span><span>Scoped list item 1</span><span slot="suffix">X</span></scoped-list-item>
+      <scoped-list-item><span slot="prefix">></span>Scoped list item 2<span slot="suffix">X</span></scoped-list-item>
+      <scoped-list-item><span slot="prefix">></span>Scoped list item 3<span slot="suffix">X</span></scoped-list-item>
+      <scoped-list-item><span slot="prefix">></span>Scoped list item 4<span slot="suffix">X</span></scoped-list-item>
+      <scoped-list-item><span slot="prefix">></span>Scoped list item 5<span slot="suffix">X</span></scoped-list-item>
+    </ul>
+  </body>
+  <script>
+    window.onload = () => {
+      setTimeout(() => {
+        const shadow = (document.querySelector('#shadow').textContent = 'Whatever');
+        const scoped = (document.querySelector('#scoped').textContent = 'Whatever');
+      }, 500);
+    };
+  </script>
+</html>

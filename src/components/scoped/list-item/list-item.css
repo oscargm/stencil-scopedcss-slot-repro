@@ -14,6 +14,7 @@
 ::slotted([slot='suffix']) {
   flex-basis: 15%;
   flex-grow: 0;
+  color: blue;
 }
 ::slotted {
   flex-basis: 70%;

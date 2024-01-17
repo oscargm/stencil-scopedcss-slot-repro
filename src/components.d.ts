@@ -6,68 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface CustomListItem {
-        /**
-          * Makes the list item expanded if it has children list items
-         */
-        "expanded"?: boolean;
-        /**
-          * Makes the list item multiple
-         */
-        "multiple"?: boolean;
-        /**
-          * Makes the list item selected only if it is leaf node
-         */
-        "selected"?: boolean;
-        /**
-          * Defines the value of the component to be used in form
-         */
-        "value"?: string | number;
-    }
     interface ScopedListItem {
-        /**
-          * Makes the list item expanded if it has children list items
-         */
-        "expanded"?: boolean;
-        /**
-          * Makes the list item multiple
-         */
-        "multiple"?: boolean;
-        /**
-          * Makes the list item selected only if it is leaf node
-         */
-        "selected"?: boolean;
-        /**
-          * Defines the value of the component to be used in form
-         */
-        "value"?: string | number;
     }
     interface ShadowListItem {
-        /**
-          * Makes the list item expanded if it has children list items
-         */
-        "expanded"?: boolean;
-        /**
-          * Makes the list item multiple
-         */
-        "multiple"?: boolean;
-        /**
-          * Makes the list item selected only if it is leaf node
-         */
-        "selected"?: boolean;
-        /**
-          * Defines the value of the component to be used in form
-         */
-        "value"?: string | number;
     }
 }
 declare global {
-    interface HTMLCustomListItemElement extends Components.CustomListItem, HTMLStencilElement {
-    }
-    var HTMLCustomListItemElement: {
-        prototype: HTMLCustomListItemElement;
-        new (): HTMLCustomListItemElement;
-    };
     interface HTMLScopedListItemElement extends Components.ScopedListItem, HTMLStencilElement {
     }
     var HTMLScopedListItemElement: {
@@ -81,68 +25,16 @@ declare global {
         new (): HTMLShadowListItemElement;
     };
     interface HTMLElementTagNameMap {
-        "custom-list-item": HTMLCustomListItemElement;
         "scoped-list-item": HTMLScopedListItemElement;
         "shadow-list-item": HTMLShadowListItemElement;
     }
 }
 declare namespace LocalJSX {
-    interface CustomListItem {
-        /**
-          * Makes the list item expanded if it has children list items
-         */
-        "expanded"?: boolean;
-        /**
-          * Makes the list item multiple
-         */
-        "multiple"?: boolean;
-        /**
-          * Makes the list item selected only if it is leaf node
-         */
-        "selected"?: boolean;
-        /**
-          * Defines the value of the component to be used in form
-         */
-        "value"?: string | number;
-    }
     interface ScopedListItem {
-        /**
-          * Makes the list item expanded if it has children list items
-         */
-        "expanded"?: boolean;
-        /**
-          * Makes the list item multiple
-         */
-        "multiple"?: boolean;
-        /**
-          * Makes the list item selected only if it is leaf node
-         */
-        "selected"?: boolean;
-        /**
-          * Defines the value of the component to be used in form
-         */
-        "value"?: string | number;
     }
     interface ShadowListItem {
-        /**
-          * Makes the list item expanded if it has children list items
-         */
-        "expanded"?: boolean;
-        /**
-          * Makes the list item multiple
-         */
-        "multiple"?: boolean;
-        /**
-          * Makes the list item selected only if it is leaf node
-         */
-        "selected"?: boolean;
-        /**
-          * Defines the value of the component to be used in form
-         */
-        "value"?: string | number;
     }
     interface IntrinsicElements {
-        "custom-list-item": CustomListItem;
         "scoped-list-item": ScopedListItem;
         "shadow-list-item": ShadowListItem;
     }
@@ -151,7 +43,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "custom-list-item": LocalJSX.CustomListItem & JSXBase.HTMLAttributes<HTMLCustomListItemElement>;
             "scoped-list-item": LocalJSX.ScopedListItem & JSXBase.HTMLAttributes<HTMLScopedListItemElement>;
             "shadow-list-item": LocalJSX.ShadowListItem & JSXBase.HTMLAttributes<HTMLShadowListItemElement>;
         }

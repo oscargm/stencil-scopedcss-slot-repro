@@ -23,13 +23,14 @@
       <scoped-list-item><span slot="prefix">></span>Scoped list item 4<span slot="suffix">X</span></scoped-list-item>
       <scoped-list-item><span slot="prefix">></span>Scoped list item 5<span slot="suffix">X</span></scoped-list-item>
     </ul>
+    <button onclick="onButtonClick()">Click</button>
   </body>
   <script>
-    window.onload = () => {
-      setTimeout(() => {
-        const shadow = (document.querySelector('#shadow').textContent = 'Whatever');
-        const scoped = (document.querySelector('#scoped').textContent = 'Whatever');
-      }, 500);
-    };
+    function onButtonClick() {
+      const shadow = (document.querySelector('#shadow').textContent = 'Whatever');
+      // const shadowSuffix = (document.querySelector('#shadow span[slot="suffix"]').textContent = 'suffix');
+      const scopedSuffix = (document.querySelector('#scoped span[slot="suffix"]').textContent = 'suffix');
+      const scoped = (document.querySelector('#scoped').textContent = 'Whatever');
+    }
   </script>
 </html>

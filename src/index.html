@@ -2,35 +2,150 @@
 <html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
     <title>Stencil Component Starter</title>
 
     <script type="module" src="/build/stencil-scoped.esm.js"></script>
     <script nomodule src="/build/stencil-scoped.js"></script>
+    <style>
+      body {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        flex-direction: column;
+      }
+      button {
+        width: fit-content;
+      }
+    </style>
   </head>
+
   <body>
-    <ul>
-      <shadow-list-item id="shadow"><span slot="prefix">></span><span>Shadow list item 1</span><span slot="suffix">X</span></shadow-list-item>
-      <shadow-list-item><span slot="prefix">></span>Shadow list item 2<span slot="suffix">X</span></shadow-list-item>
-      <shadow-list-item><span slot="prefix">></span>Shadow list item 3<span slot="suffix">X</span></shadow-list-item>
-      <shadow-list-item><span slot="prefix">></span>Shadow list item 4<span slot="suffix">X</span></shadow-list-item>
-      <shadow-list-item><span slot="prefix">></span>Shadow list item 5<span slot="suffix">X</span></shadow-list-item>
-    </ul>
-    <ul>
-      <scoped-list-item id="scoped"><span slot="prefix">></span><span>Scoped list item 1</span><span slot="suffix">X</span></scoped-list-item>
-      <scoped-list-item><span slot="prefix">></span>Scoped list item 2<span slot="suffix">X</span></scoped-list-item>
-      <scoped-list-item><span slot="prefix">></span>Scoped list item 3<span slot="suffix">X</span></scoped-list-item>
-      <scoped-list-item><span slot="prefix">></span>Scoped list item 4<span slot="suffix">X</span></scoped-list-item>
-      <scoped-list-item><span slot="prefix">></span>Scoped list item 5<span slot="suffix">X</span></scoped-list-item>
-    </ul>
+    <div>
+      <ul>
+        <p>
+          The first element is being updated via textContent without a span
+          wrapping default host
+        </p>
+        <scoped-list-item id="scoped">
+          <span slot="prefix">></span>
+          Scoped list item 1 with no span wrapper
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+        <scoped-list-item>
+          <span slot="prefix">></span>
+          Scoped list item 2
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+        <scoped-list-item>
+          <span slot="prefix">></span>
+          Scoped list item 3
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+        <scoped-list-item>
+          <span slot="prefix">></span>
+          Scoped list item 4
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+        <scoped-list-item>
+          <span slot="prefix">></span>
+          Scoped list item 5
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+      </ul>
+      <ul>
+        <p>
+          The first element is being updated via textContent with a span
+          wrapping default host
+        </p>
+        <scoped-list-item id="scoped-span">
+          <span slot="prefix">></span>
+          <span>Scoped list item 1 with no span wrapper</span>
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+        <scoped-list-item>
+          <span slot="prefix">></span>
+          Scoped list item 2
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+        <scoped-list-item>
+          <span slot="prefix">></span>
+          Scoped list item 3
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+        <scoped-list-item>
+          <span slot="prefix">></span>
+          Scoped list item 4
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+        <scoped-list-item>
+          <span slot="prefix">></span>
+          Scoped list item 5
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+      </ul>
+      <ul>
+        <p>The first element default is being updated via innerHTML</p>
+        <scoped-list-item id="scoped-span-innerHTML">
+          <span slot="prefix">></span>
+          <span>Scoped list item 1 with no span wrapper</span>
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+        <scoped-list-item>
+          <span slot="prefix">></span>
+          Scoped list item 2
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+        <scoped-list-item>
+          <span slot="prefix">></span>
+          Scoped list item 3
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+        <scoped-list-item>
+          <span slot="prefix">></span>
+          Scoped list item 4
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+        <scoped-list-item>
+          <span slot="prefix">></span>
+          Scoped list item 5
+          <span slot="suffix">X</span>
+        </scoped-list-item>
+      </ul>
+    </div>
     <button onclick="onButtonClick()">Click</button>
   </body>
   <script>
     function onButtonClick() {
-      const shadow = (document.querySelector('#shadow').textContent = 'Whatever');
-      // const shadowSuffix = (document.querySelector('#shadow span[slot="suffix"]').textContent = 'suffix');
-      const scopedSuffix = (document.querySelector('#scoped span[slot="suffix"]').textContent = 'suffix');
-      const scoped = (document.querySelector('#scoped').textContent = 'Whatever');
+      const scopedSuffix = (document.querySelector(
+        '#scoped span[slot="suffix"]',
+      ).textContent = 'suffix');
+      const scoped = (document.querySelector('#scoped').textContent =
+        'Whatever');
+      const scopedSpan = (document.querySelector('#scoped-span').textContent =
+        'Whatever');
+      const [prefixSlot, defaultSlot, suffixSlot] = [
+        'prefix',
+        'default',
+        'suffix',
+      ].map(textContent => {
+        const el = document.createElement('span');
+        el.textContent = textContent;
+        return el;
+      });
+      console.log(prefixSlot, defaultSlot, suffixSlot);
+      prefixSlot.setAttribute('slot', 'prefix');
+      suffixSlot.setAttribute('slot', 'suffix');
+      document.querySelector(
+        '#scoped-span-innerHTML div.list-wrapper',
+      ).innerHTML = [
+        prefixSlot.outerHTML,
+        defaultSlot.outerHTML,
+        suffixSlot.outerHTML,
+      ].join('');
     }
   </script>
 </html>

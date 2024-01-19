@@ -7,6 +7,7 @@ export const config: Config = {
     experimentalImportInjection: true,
     experimentalSlotFixes: true,
     scopedSlotTextContentFix: true,
+    experimentalScopedSlotChanges: true,
   },
   outputTargets: [
     {
